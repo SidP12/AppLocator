@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="576dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="157dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-2dp"
+        app:srcCompat="@drawable/img" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="-81dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@drawable/panel" />
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextTextPersonName2"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="63dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="53dp"-->
+<!--        android:layout_marginTop="44dp"-->
+<!--        android:background="@null"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Search"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:textColor="#4A4A4A"-->
+<!--        android:textColorHint="#4A4A4A" />-->
+
+
+    <AutoCompleteTextView
+        android:id="@+id/actv"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="65dp"
+        android:background="@null"
+        android:completionThreshold="1"
+        android:hint="Search"
+        android:maxLines="1" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="36dp"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="58dp"
+        app:srcCompat="@drawable/img_2" />
+
+</RelativeLayout>

@@ -1,0 +1,59 @@
+{
+	"basketball": {
+		"SKU": "1349192",
+		"availability": "5",
+		"location": "Sports",
+		"pictureOfProduct": "https://cdn.iconscout.com/icon/premium/png-256-thumb/basketball-1470427-1243825.png",
+		"price": "10.15",
+		"tags": "sports, court",
+		"productName": "Basketball",
+		"review": "4.7"
+	},
+	"fishing_rod": {
+		"SKU": "1349193",
+		"availability": "3",
+		"location": "Outdoors",
+		"pictureOfProduct": "https://media.istockphoto.com/photos/fishing-equipment-picture-id622314118?k=20&m=622314118&s=612x612&w=0&h=T6f_wtZr4OoHWoZp61fdloShIQlTz0dClG3VsCnbZAg=",
+		"price": "30.00",
+		"tags": "fish, fishing, rod",
+		"productName": "Fishing Rod",
+		"review": "4.7"
+} ,
+	"football": {
+		"SKU": "1349194",
+		"availability": "0",
+		"location": "Outdoors",
+		"pictureOfProduct": "https://media.istockphoto.com/vectors/american-football-ball-vector-id1184622256?k=20&m=1184622256&s=612x612&w=0&h=ASWnv2u2qj-6-LswGwrOC5XNiyrAhsVGt4qyAR8V3eA=",
+		"price": "10.98",
+		"tags": "field, yards, football",
+		"productName": "Football",
+		"review": "5.0"
+	}, "baseball": {
+	"SKU": "1349195",
+	"availability": "2",
+	"location": "Outdoors",
+	"pictureOfProduct": "https://media.istockphoto.com/vectors/american-football-ball-vector-id1184622256?k=20&m=1184622256&s=612x612&w=0&h=ASWnv2u2qj-6-LswGwrOC5XNiyrAhsVGt4qyAR8V3eA=",
+	"price": "10.98",
+	"tags": "field, yards, football",
+	"productName": "Baseball",
+	"review": "5.0"
+}, "wiffle_ball": {
+	"SKU": "1349196",
+	"availability": "3",
+	"location": "Outdoors",
+	"pictureOfProduct": "https://media.istockphoto.com/vectors/american-football-ball-vector-id1184622256?k=20&m=1184622256&s=612x612&w=0&h=ASWnv2u2qj-6-LswGwrOC5XNiyrAhsVGt4qyAR8V3eA=",
+	"price": "10.98",
+	"tags": "field, yards, football",
+	"productName": "Wiffle Ball",
+	"review": "5.0"
+} , "tennis_ball": {
+	"SKU": "1349196",
+	"availability": "0",
+	"location": "Outdoors",
+	"pictureOfProduct": "https://media.istockphoto.com/vectors/american-football-ball-vector-id1184622256?k=20&m=1184622256&s=612x612&w=0&h=ASWnv2u2qj-6-LswGwrOC5XNiyrAhsVGt4qyAR8V3eA=",
+	"price": "10.98",
+	"tags": "field, yards, football",
+	"productName": "Tennis Ball",
+	"review": "5.0"
+}
+}
