@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".Navigator"
+            android:exported="false" />
+        <activity
             android:name=".ProductDetailsPage"
             android:exported="false" />
         <activity
