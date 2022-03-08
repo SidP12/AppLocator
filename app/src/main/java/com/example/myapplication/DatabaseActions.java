@@ -1,24 +1,14 @@
 package com.example.myapplication;
 
-import static com.firebase.ui.auth.AuthUI.getApplicationContext;
-
-import android.content.Context;
-
 import androidx.annotation.NonNull;
 
-import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.gson.Gson;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class DatabaseActions {
     private DatabaseReference ref;
