@@ -39,8 +39,10 @@
             android:layout_height="200dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="78dp"
+            android:layout_marginEnd="106dp"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <ImageButton
