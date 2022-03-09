@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -115,10 +116,12 @@ public class ProductPage extends AppCompatActivity {
                 searchedList.add(prod);
             }
         }
+        TextView textView = findViewById(R.id.noItems);
         if (searchedList.isEmpty()) {
-            Toast toast = Toast.makeText(getApplicationContext(), "No items to show!", Toast.LENGTH_SHORT);
-            toast.show();
+            textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            textView.setText("No products found for the search!");
         } else {
+            textView.setText("");
             setOnClickListener(searchedList);
             AdapterClass adapterClass = new AdapterClass(searchedList, listener);
             recyclerView.setAdapter(adapterClass);
