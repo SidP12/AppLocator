@@ -30,6 +30,7 @@ public class ProductPage extends AppCompatActivity {
     ListView lv;
     RecyclerView recyclerView;
     DatabaseReference ref;
+    String locationStr;
     String value;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class ProductPage extends AppCompatActivity {
         setContentView(R.layout.activity_product_page);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            String locationStr = extras.getString("location");
+            locationStr = extras.getString("location");
             TextView textView = findViewById(R.id.location);
             textView.setText(locationStr);
             value = extras.getString("input");
@@ -132,6 +133,7 @@ public class ProductPage extends AppCompatActivity {
         Intent intent = new Intent(this, ProductPage.class);
         TextView text = (TextView)findViewById(R.id.editTextTextPersonName2);
         String in = text.getText().toString();
+        intent.putExtra("location", locationStr);
         intent.putExtra("input",in);
         startActivity(intent);
     }
