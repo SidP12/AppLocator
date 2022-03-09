@@ -25,12 +25,6 @@ public class DatabaseActions {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot d1 : snapshot.getChildren()) {
                             String prodName = d1.child("productName").getValue(String.class);
-                            String tags = d1.child("tags").getValue(String.class);
-                            String[] tagsArr = tags.split(",");
-                            for (int i = 0; i < tagsArr.length; i++) {
-                                String item = tagsArr[i].trim();
-                                items.add(item);
-                            }
                             items.add(prodName);
                         }
                     }

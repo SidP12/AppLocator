@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ProductPage extends AppCompatActivity {
 
@@ -86,7 +87,7 @@ public class ProductPage extends AppCompatActivity {
     private void search(String value, ArrayList<Product> list) {
         ArrayList<Product> searchedList = new ArrayList<>();
         for (Product prod : list) {
-            if (value.isEmpty() || prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase())) {
+            if (value.isEmpty() || prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(prod.getTags().toLowerCase())) {
                 searchedList.add(prod);
             }
         }
