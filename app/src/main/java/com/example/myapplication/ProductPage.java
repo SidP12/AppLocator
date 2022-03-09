@@ -33,6 +33,14 @@ public class ProductPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_page);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String locationStr = extras.getString("location");
+            TextView textView = findViewById(R.id.location);
+            textView.setText(locationStr);
+            value = extras.getString("input");
+            value = value.trim();
+        }
         button = findViewById(R.id.imageButton11);
         recyclerView = findViewById(R.id.rv);
         DatabaseActions actions = new DatabaseActions();
@@ -48,12 +56,6 @@ public class ProductPage extends AppCompatActivity {
                 openProductPage();
             }
         });
-        Bundle extras = getIntent().getExtras();
-        value = "";
-        if (extras != null) {
-            value = extras.getString("input");
-        }
-        value = value.trim();
         ref = FirebaseDatabase.getInstance().getReference().child("Product");
     }
 

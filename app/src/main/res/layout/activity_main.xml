@@ -21,19 +21,7 @@
         android:layout_marginBottom="-2dp"
         app:srcCompat="@drawable/img" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="-6dp"
-        android:layout_marginTop="-81dp"
-        android:layout_marginEnd="0dp"
-        app:srcCompat="@drawable/panel" />
-
-<!--    <EditText-->
+    <!--    <EditText-->
 <!--        android:id="@+id/editTextTextPersonName2"-->
 <!--        android:layout_width="300dp"-->
 <!--        android:layout_height="63dp"-->
@@ -57,8 +45,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="66dp"
         android:layout_marginEnd="65dp"
         android:background="@null"
         android:completionThreshold="1"
@@ -72,7 +60,45 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="17dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="61dp"
         app:srcCompat="@drawable/img_2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="-2dp"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/panel" />
+
+    <ImageButton
+        android:id="@+id/openLocation"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="0dp"
+        app:srcCompat="@drawable/location" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="110dp"
+        android:text="Grand Parkway"
+        android:textColor="#005475"
+        android:textStyle="bold" />
 
 </RelativeLayout>

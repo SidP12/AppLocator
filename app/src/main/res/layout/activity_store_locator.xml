@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StoreLocator">
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="338dp"
+        android:layout_height="296dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="436dp"
+        android:layout_marginBottom="0dp">
+
+        <RadioButton
+            android:id="@+id/Kennesaw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kennesaw" />
+
+        <RadioButton
+            android:id="@+id/Douglasville"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Douglasville" />
+
+        <RadioButton
+            android:id="@+id/Conyers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Conyers" />
+
+        <RadioButton
+            android:id="@+id/Hiram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hiram" />
+
+        <RadioButton
+            android:id="@+id/Snellville"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Snellville" />
+
+        <RadioButton
+            android:id="@+id/McDonough"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="McDonough" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="413dp"
+        android:text="Nearby Stores"
+        android:textColor="#2C44CF" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="226dp"
+        android:text="Details"
+        android:textColor="#027180" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="30dp"
+        android:text="Details"
+        android:textColor="#027180" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="83dp"
+        android:text="Details"
+        android:textColor="#027180" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="134dp"
+        android:text="Details"
+        android:textColor="#027180" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="179dp"
+        android:text="Details"
+        android:textColor="#027180" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="415dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/storemap"
+        tools:srcCompat="@drawable/storemap" />
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="278dp"
+        android:backgroundTint="#3781F1"
+        android:text="Confirm" />
+
+    <!--        android:adjustViewBounds="true"-->
+<!--        app:srcCompat="@drawable/storemap" />-->
+
+
+</RelativeLayout>
