@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -58,6 +59,22 @@ public class ProductPage extends AppCompatActivity {
             }
         });
         ref = FirebaseDatabase.getInstance().getReference().child("Product");
+
+        ImageButton locationButton = findViewById(R.id.openLocation);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLocationsPage();
+            }
+        });
+    }
+
+    public void openLocationsPage() {
+        Intent intent = new Intent(ProductPage.this, StoreLocator.class);
+        TextView location = findViewById(R.id.location);
+        String loc = location.getText().toString();
+        intent.putExtra("location", loc);
+        startActivity(intent);
     }
 
     @Override

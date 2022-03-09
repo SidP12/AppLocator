@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void openLocationsPage() {
+    public void openLocationsPage() {
         Intent intent = new Intent(MainActivity.this, StoreLocator.class);
         TextView location = findViewById(R.id.location);
         String loc = location.getText().toString();

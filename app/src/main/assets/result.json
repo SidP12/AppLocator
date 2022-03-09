@@ -36,7 +36,7 @@
 		"price": "59.99",
 		"tags": "soccer, nike, field",
 		"productName": "Nike Vapor Edge Team Cleats",
-		"review": "5.0"
+		"review": "4.5"
 	}, "nike_cleats_2": {
 	"SKU": "1349195",
 	"availability": "1",
@@ -45,7 +45,7 @@
 	"price": "79.99",
 	"tags": "soccer, nike, field",
 	"productName": "Pink Nike Mercurial Cleats",
-	"review": "5.0"
+	"review": "4.7"
 }, "adidas_cleats": {
 	"SKU": "1349196",
 	"availability": "0",
@@ -54,7 +54,7 @@
 	"price": "69.99",
 	"tags": "soccer, dynasty, field",
 	"productName": "Adidas Soccer Adizero Cleats",
-	"review": "5.0"
+	"review": "4.8"
 } , "nike_cleats_3": {
 	"SKU": "1349197",
 	"availability": "0",
@@ -63,7 +63,7 @@
 	"price": "109.99",
 	"tags": "soccer, nike, field",
 	"productName": "Nike Mercurial Superfly 7 Cleats",
-	"review": "5.0"
+	"review": "3.5"
 }, "basketball_hoop": {
 	"SKU": "1349198",
 	"availability": "3",
@@ -72,6 +72,6 @@
 	"price": "149.99",
 	"tags": "sports, court",
 	"productName": "Ryval Regulation Hoop",
-	"review": "4.7"
+	"review": "4.0"
 }
 }
