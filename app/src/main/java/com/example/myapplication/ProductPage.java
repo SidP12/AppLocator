@@ -59,7 +59,10 @@ public class ProductPage extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openProductPage();
+                TextView textView = findViewById(R.id.editTextTextPersonName2);
+                if (!textView.getText().toString().isEmpty()) {
+                    openProductPage();
+                }
             }
         });
         ref = FirebaseDatabase.getInstance().getReference().child("Product");
@@ -108,14 +111,9 @@ public class ProductPage extends AppCompatActivity {
     private void search(String value, ArrayList<Product> list) {
         ArrayList<Product> searchedList = new ArrayList<>();
         for (Product prod : list) {
-            if (!value.isEmpty() && (prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(prod.getTags().toLowerCase()))) {
+            if (prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(prod.getTags().toLowerCase())) {
                 searchedList.add(prod);
             }
-        }
-        if (searchedList.isEmpty()) {
-            Toast toast = Toast.makeText(getApplicationContext(), "No items to show!", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
         }
         setOnClickListener(searchedList);
         AdapterClass adapterClass = new AdapterClass(searchedList, listener);

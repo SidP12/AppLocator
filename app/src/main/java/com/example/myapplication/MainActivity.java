@@ -53,7 +53,10 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openProductPage();
+                TextView textView = findViewById(R.id.actv);
+                if (!textView.getText().toString().isEmpty()) {
+                    openProductPage();
+                }
             }
         });
 
