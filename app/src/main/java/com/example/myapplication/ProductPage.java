@@ -60,7 +60,7 @@ public class ProductPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView textView = findViewById(R.id.editTextTextPersonName2);
-                if (!textView.getText().toString().isEmpty()) {
+                if (!textView.getText().toString().trim().isEmpty()) {
                     openProductPage();
                 }
             }
@@ -111,14 +111,18 @@ public class ProductPage extends AppCompatActivity {
     private void search(String value, ArrayList<Product> list) {
         ArrayList<Product> searchedList = new ArrayList<>();
         for (Product prod : list) {
-            if (prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(prod.getTags().toLowerCase())) {
+            if (!value.isEmpty() && (prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(prod.getTags().toLowerCase()))) {
                 searchedList.add(prod);
             }
         }
-        setOnClickListener(searchedList);
-        AdapterClass adapterClass = new AdapterClass(searchedList, listener);
-        System.out.println(searchedList);
-        recyclerView.setAdapter(adapterClass);
+        if (searchedList.isEmpty()) {
+            Toast toast = Toast.makeText(getApplicationContext(), "No items to show!", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            setOnClickListener(searchedList);
+            AdapterClass adapterClass = new AdapterClass(searchedList, listener);
+            recyclerView.setAdapter(adapterClass);
+        }
     }
 
     private void setOnClickListener(ArrayList<Product> searchedList) {

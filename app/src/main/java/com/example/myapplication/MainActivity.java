@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView textView = findViewById(R.id.actv);
-                if (!textView.getText().toString().isEmpty()) {
+                if (!textView.getText().toString().trim().isEmpty()) {
                     openProductPage();
                 }
             }

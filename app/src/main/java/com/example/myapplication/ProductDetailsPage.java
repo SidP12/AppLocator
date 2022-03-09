@@ -42,7 +42,7 @@ public class ProductDetailsPage extends AppCompatActivity {
         TextView stock = findViewById(R.id.prodStock);
         storeLocation.setText("at " + storeLocationStr);
         prodLocation.setText(prodLocationStr);
-        if (stock.equals("0")) {
+        if (availabilityStoreStr.equals("0")) {
             stock.setText("Out of stock");
             stock.setTextColor(Color.RED);
         } else {
