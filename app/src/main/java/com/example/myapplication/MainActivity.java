@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openProductPage() {
-        TextView text = (TextView)findViewById(R.id.actv);
+        TextView text = findViewById(R.id.actv);
         TextView location = findViewById(R.id.location);
         String input = text.getText().toString();
         String locStr = location.getText().toString();

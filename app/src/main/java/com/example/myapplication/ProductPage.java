@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +39,7 @@ public class ProductPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_page);
         Bundle extras = getIntent().getExtras();
+        value = "";
         if (extras != null) {
             locationStr = extras.getString("location");
             TextView textView = findViewById(R.id.location);
@@ -105,9 +108,14 @@ public class ProductPage extends AppCompatActivity {
     private void search(String value, ArrayList<Product> list) {
         ArrayList<Product> searchedList = new ArrayList<>();
         for (Product prod : list) {
-            if (value.isEmpty() || prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(prod.getTags().toLowerCase())) {
+            if (!value.isEmpty() && (prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(prod.getTags().toLowerCase()))) {
                 searchedList.add(prod);
             }
+        }
+        if (searchedList.isEmpty()) {
+            Toast toast = Toast.makeText(getApplicationContext(), "No items to show!", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
         }
         setOnClickListener(searchedList);
         AdapterClass adapterClass = new AdapterClass(searchedList, listener);
@@ -124,6 +132,9 @@ public class ProductPage extends AppCompatActivity {
                 intent.putExtra("image", prod.getPictureOfProduct());
                 intent.putExtra("price", prod.getPrice());
                 intent.putExtra("prodName", prod.getProductName());
+                intent.putExtra("prodLocation", prod.getLocation());
+                intent.putExtra("availability", prod.getAvailability());
+                intent.putExtra("storeLocation", locationStr);
                 startActivity(intent);
             }
         };
