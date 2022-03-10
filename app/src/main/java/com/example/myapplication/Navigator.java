@@ -10,6 +10,8 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,15 @@ public class Navigator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigator);
+
+        //back button
+        ImageButton backButton = findViewById(R.id.backButton3);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         //background img
         ImageView storeLayout = (ImageView) findViewById(R.id.storeLayout);
@@ -43,7 +54,7 @@ public class Navigator extends AppCompatActivity {
 
         // Line
         Paint paint = new Paint();
-        paint.setColor(Color.rgb(255, 153, 51));
+        paint.setColor(Color.rgb(17, 50, 98));
         int strokeWidth = 16;
         paint.setStrokeWidth(strokeWidth);
         paint.setAntiAlias(true);
@@ -54,7 +65,21 @@ public class Navigator extends AppCompatActivity {
             prodLocationStr = extras.getString("prodLocation");
         }
 
-        Stack<int[]> pathStack = generatePathStack(7);
+        //switch statement
+        int aisleCode = 3;
+        switch(prodLocationStr) {
+            case "A10" :
+                aisleCode = 4;
+                break;
+            case "A11" :
+                aisleCode = 9;
+                break;
+            case "B9" :
+                aisleCode = 7;
+                break;
+        }
+
+        Stack<int[]> pathStack = generatePathStack(aisleCode);
         while(!pathStack.isEmpty()) {
             int[] c = pathStack.pop();
             //yes, I had to switch the x and the y
