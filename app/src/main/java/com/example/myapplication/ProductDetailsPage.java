@@ -17,15 +17,19 @@ public class ProductDetailsPage extends AppCompatActivity {
 
     String prodLocationStr;
     String availabilityStoreStr;
+    String imageStr;
+    String prodNameStr;
+    String priceStr;
+    String storeLocationStr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details_page);
         Bundle extras = getIntent().getExtras();
-        String imageStr = "";
-        String priceStr = "";
-        String prodNameStr = "";
-        String storeLocationStr = "";
+        imageStr = "";
+        priceStr = "";
+        prodNameStr = "";
+        storeLocationStr = "";
         prodLocationStr = "";
         if (extras != null) {
              imageStr = extras.getString("image");
@@ -63,6 +67,10 @@ public class ProductDetailsPage extends AppCompatActivity {
                     if (!availabilityStoreStr.equals("0")) {
                         Intent intent = new Intent(ProductDetailsPage.this, Navigator.class);
                         intent.putExtra("prodLocation", prodLocationStr);
+                        intent.putExtra("prodImage", imageStr);
+                        intent.putExtra("prodName", prodNameStr);
+                        intent.putExtra("prodPrice", priceStr);
+                        intent.putExtra("prodStoreLocation", storeLocationStr);
                         startActivity(intent);
                     } else {
                         Toast.makeText(getApplicationContext(), "Item is out of stock!" , Toast.LENGTH_SHORT).show();
