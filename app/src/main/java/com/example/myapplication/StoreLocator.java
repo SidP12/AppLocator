@@ -32,6 +32,14 @@ public class StoreLocator extends AppCompatActivity {
 
             }
         });
+
+        Button cancelButton = findViewById(R.id.cancel);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
  //       ImageView imageView = findViewById(R.id.imageView4);
 //        Picasso.get().load("C:\\Users\\pilla\\AndroidStudioProjects\\MyApplication4\\app\\src\\main\\res\\drawable\\storemap.png").into(imageView);
     }
