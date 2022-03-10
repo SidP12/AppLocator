@@ -117,10 +117,13 @@ public class ProductPage extends AppCompatActivity {
             }
         }
         TextView textView = findViewById(R.id.noItems);
+        TextView numItems = findViewById(R.id.numItems);
         if (searchedList.isEmpty()) {
+            numItems.setText("");
             textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             textView.setText("No products found for the search!");
         } else {
+            numItems.setText(searchedList.size() + " ITEMS");
             textView.setText("");
             setOnClickListener(searchedList);
             AdapterClass adapterClass = new AdapterClass(searchedList, listener);

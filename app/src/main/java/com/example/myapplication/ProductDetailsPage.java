@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +16,7 @@ import com.squareup.picasso.Picasso;
 public class ProductDetailsPage extends AppCompatActivity {
 
     String prodLocationStr;
+    String availabilityStoreStr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,6 @@ public class ProductDetailsPage extends AppCompatActivity {
         String priceStr = "";
         String prodNameStr = "";
         String storeLocationStr = "";
-        String availabilityStoreStr = "";
         prodLocationStr = "";
         if (extras != null) {
              imageStr = extras.getString("image");
@@ -55,15 +56,19 @@ public class ProductDetailsPage extends AppCompatActivity {
         price.setText("$" + priceStr);
         prodName.setText(prodNameStr);
         Picasso.get().load(imageStr).into(image);
-        ImageButton prodFinder = findViewById(R.id.prodFinder);
-        prodFinder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ProductDetailsPage.this, Navigator.class);
-                intent.putExtra("prodLocation", prodLocationStr);
-                startActivity(intent);
-            }
-        });
+            ImageButton prodFinder = findViewById(R.id.prodFinder);
+            prodFinder.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (!availabilityStoreStr.equals("0")) {
+                        Intent intent = new Intent(ProductDetailsPage.this, Navigator.class);
+                        intent.putExtra("prodLocation", prodLocationStr);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Item is out of stock!" , Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         ImageButton backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
