@@ -1,13 +1,17 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ProductPage extends AppCompatActivity {
 
@@ -28,11 +33,21 @@ public class ProductPage extends AppCompatActivity {
     ListView lv;
     RecyclerView recyclerView;
     DatabaseReference ref;
+    String locationStr;
     String value;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_page);
+        Bundle extras = getIntent().getExtras();
+        value = "";
+        if (extras != null) {
+            locationStr = extras.getString("location");
+            TextView textView = findViewById(R.id.location);
+            textView.setText(locationStr);
+            value = extras.getString("input");
+            value = value.trim();
+        }
         button = findViewById(R.id.imageButton11);
         recyclerView = findViewById(R.id.rv);
         DatabaseActions actions = new DatabaseActions();
@@ -45,16 +60,29 @@ public class ProductPage extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openProductPage();
+                TextView textView = findViewById(R.id.editTextTextPersonName2);
+                if (!textView.getText().toString().trim().isEmpty()) {
+                    openProductPage();
+                }
             }
         });
-        Bundle extras = getIntent().getExtras();
-        value = "";
-        if (extras != null) {
-            value = extras.getString("input");
-        }
-        value = value.trim();
         ref = FirebaseDatabase.getInstance().getReference().child("Product");
+
+        ImageButton locationButton = findViewById(R.id.openLocation);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLocationsPage();
+            }
+        });
+    }
+
+    public void openLocationsPage() {
+        Intent intent = new Intent(ProductPage.this, StoreLocator.class);
+        TextView location = findViewById(R.id.location);
+        String loc = location.getText().toString();
+        intent.putExtra("location", loc);
+        startActivity(intent);
     }
 
     @Override
@@ -84,14 +112,20 @@ public class ProductPage extends AppCompatActivity {
     private void search(String value, ArrayList<Product> list) {
         ArrayList<Product> searchedList = new ArrayList<>();
         for (Product prod : list) {
-            if (value.isEmpty() || prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase())) {
+            if (!value.isEmpty() && (prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(prod.getTags().toLowerCase()))) {
                 searchedList.add(prod);
             }
         }
-        setOnClickListener(searchedList);
-        AdapterClass adapterClass = new AdapterClass(searchedList, listener);
-        System.out.println(searchedList);
-        recyclerView.setAdapter(adapterClass);
+        TextView textView = findViewById(R.id.noItems);
+        if (searchedList.isEmpty()) {
+            textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            textView.setText("No products found for the search!");
+        } else {
+            textView.setText("");
+            setOnClickListener(searchedList);
+            AdapterClass adapterClass = new AdapterClass(searchedList, listener);
+            recyclerView.setAdapter(adapterClass);
+        }
     }
 
     private void setOnClickListener(ArrayList<Product> searchedList) {
@@ -103,6 +137,9 @@ public class ProductPage extends AppCompatActivity {
                 intent.putExtra("image", prod.getPictureOfProduct());
                 intent.putExtra("price", prod.getPrice());
                 intent.putExtra("prodName", prod.getProductName());
+                intent.putExtra("prodLocation", prod.getLocation());
+                intent.putExtra("availability", prod.getAvailability());
+                intent.putExtra("storeLocation", locationStr);
                 startActivity(intent);
             }
         };
@@ -112,6 +149,7 @@ public class ProductPage extends AppCompatActivity {
         Intent intent = new Intent(this, ProductPage.class);
         TextView text = (TextView)findViewById(R.id.editTextTextPersonName2);
         String in = text.getText().toString();
+        intent.putExtra("location", locationStr);
         intent.putExtra("input",in);
         startActivity(intent);
     }

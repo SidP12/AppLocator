@@ -6,65 +6,132 @@
     android:layout_height="match_parent"
     tools:context=".ProductDetailsPage">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="411dp"
-        android:layout_height="539dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="-1dp"
-        android:layout_marginTop="7dp"
-        app:srcCompat="@drawable/productpage" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="491dp"
+        android:layout_marginBottom="15dp">
 
-    <ImageView
-        android:id="@+id/imageProd"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="115dp"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="484dp"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="7dp"
+            app:srcCompat="@drawable/productpage" />
 
-    <TextView
-        android:id="@+id/priceProd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/priceProd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="37dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Price"
+            android:textColor="#2C468C"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageProd"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="78dp"
+            android:layout_marginEnd="106dp"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="2dp"
+            app:srcCompat="@drawable/back_button" />
+
+        <TextView
+            android:id="@+id/prodNameDetails"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="69dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="ProductName"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="221dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginBottom="263dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Price"
-        android:textColor="#2C468C"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_marginStart="0dp">
 
-    <TextView
-        android:id="@+id/prodNameDetails"
-        android:layout_width="375dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="285dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="ProductName"
-        android:textColor="#000000"
-        android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="0dp"
+            app:srcCompat="@drawable/bottprodlist" />
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="45dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="4dp"
-        app:srcCompat="@drawable/back_button" />
+        <ImageButton
+            android:id="@+id/prodFinder"
+            android:layout_width="410dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="139dp"
+            app:srcCompat="@drawable/locatorbutton" />
+
+        <TextView
+            android:id="@+id/storeLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="68dp"
+            android:text="Store Location"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/prodLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="47dp"
+            android:text="Location"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/prodStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="69dp"
+            android:text="Stock"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -14,6 +15,8 @@ import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflec
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String locationStr = extras.getString("location");
+            TextView textView = findViewById(R.id.location);
+            textView.setText(locationStr);
+        }
         DatabaseActions actions = new DatabaseActions();
         actions.clearDatabase();
         pushJson();
@@ -45,14 +53,37 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openProductPage();
+                TextView textView = findViewById(R.id.actv);
+                if (!textView.getText().toString().trim().isEmpty()) {
+                    openProductPage();
+                }
+            }
+        });
+
+        ImageButton locationButton = findViewById(R.id.openLocation);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLocationsPage();
             }
         });
     }
+
+    public void openLocationsPage() {
+        Intent intent = new Intent(MainActivity.this, StoreLocator.class);
+        TextView location = findViewById(R.id.location);
+        String loc = location.getText().toString();
+        intent.putExtra("location", loc);
+        startActivity(intent);
+    }
+
     public void openProductPage() {
-        TextView text = (TextView)findViewById(R.id.actv);
+        TextView text = findViewById(R.id.actv);
+        TextView location = findViewById(R.id.location);
         String input = text.getText().toString();
+        String locStr = location.getText().toString();
         Intent intent = new Intent(MainActivity.this, ProductPage.class);
+        intent.putExtra("location", locStr);
         intent.putExtra("input", input);
         startActivity(intent);
     }
