@@ -12,8 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="575dp"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="3dp"
         app:srcCompat="@drawable/layout" />
+
+    <TextView
+        android:id="@+id/branchName"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="BranchName"
+        android:textColor="#000000"
+        android:textSize="16sp" />
 
     <ImageButton
         android:id="@+id/backButton3"
@@ -24,5 +36,40 @@
         android:layout_marginStart="26dp"
         android:layout_marginTop="2dp"
         app:srcCompat="@drawable/back_button" />
+
+    <ImageView
+        android:id="@+id/productImg"
+        android:layout_width="170dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="620dp"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/priceProd2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="190dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Price"
+        android:textColor="#2C468C"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/prodNameDetails2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="190dp"
+        android:layout_marginBottom="56dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="ProductName"
+        android:textColor="#000000"
+        android:textSize="16sp" />
 
 </RelativeLayout>

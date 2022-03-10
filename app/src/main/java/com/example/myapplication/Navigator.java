@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -36,10 +38,42 @@ public class Navigator extends AppCompatActivity {
             }
         });
 
+        //getting resources from prev page
+        Bundle extras = getIntent().getExtras();
+
+        //top store bar
+        TextView storeLocation = findViewById(R.id.branchName);
+        String storeLocationStr = "";
+        if (extras != null) {
+            storeLocationStr = extras.getString("prodStoreLocation");
+        }
+        storeLocation.setText(storeLocationStr + " Store Map");
+
+        //bottom product bar
+        ImageView image = findViewById(R.id.productImg);
+        String imageStr = "";
+        if (extras != null) {
+            imageStr = extras.getString("prodImage");
+        }
+        Picasso.get().load(imageStr).into(image);
+
+        TextView prodName = findViewById(R.id.prodNameDetails2);
+        String prodNameStr = "";
+        if (extras != null) {
+            prodNameStr = extras.getString("prodName");
+        }
+        prodName.setText(prodNameStr);
+
+        TextView price = findViewById(R.id.priceProd2);
+        String priceStr = "";
+        if (extras != null) {
+            priceStr = extras.getString("prodPrice");
+        }
+        price.setText("$" + priceStr);
+
+
         //background img
         ImageView storeLayout = (ImageView) findViewById(R.id.storeLayout);
-        //int imageResource = getResources().getIdentifier("@drawable/layout", null, this.getPackageName());
-        //storeLayout.setImageResource(imageResource);
 
         //bitmap, using the above ImageView
         Bitmap bitmap = Bitmap.createBitmap(1080, 1920, Bitmap.Config.ARGB_8888);
@@ -50,21 +84,17 @@ public class Navigator extends AppCompatActivity {
         d.setBounds(0,0,1080,1920);
         d.draw(canvas);
 
-
-
         // Line
         Paint paint = new Paint();
         paint.setColor(Color.rgb(17, 50, 98));
         int strokeWidth = 16;
         paint.setStrokeWidth(strokeWidth);
         paint.setAntiAlias(true);
-        Bundle extras = getIntent().getExtras();
 
         String prodLocationStr = "";
         if (extras != null) {
             prodLocationStr = extras.getString("prodLocation");
         }
-
         //switch statement
         int aisleCode = 3;
         switch(prodLocationStr) {
