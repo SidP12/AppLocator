@@ -52,7 +52,6 @@ public class Navigator extends AppCompatActivity {
         String prodLocationStr = "";
         if (extras != null) {
             prodLocationStr = extras.getString("prodLocation");
-            Toast.makeText(getApplicationContext(), prodLocationStr, Toast.LENGTH_SHORT).show();
         }
 
         Stack<int[]> pathStack = generatePathStack(7);
