@@ -41,14 +41,16 @@ public class ProductDetailsPage extends AppCompatActivity {
         TextView storeLocation = findViewById(R.id.storeLocation);
         TextView prodLocation = findViewById(R.id.prodLocation);
         TextView stock = findViewById(R.id.prodStock);
-        storeLocation.setText("at " + storeLocationStr);
+
         prodLocation.setText(prodLocationStr);
         if (availabilityStoreStr.equals("0")) {
             stock.setText("Out of stock");
             stock.setTextColor(Color.RED);
+            storeLocation.setText("     at " + storeLocationStr);
         } else {
             stock.setText(availabilityStoreStr + " in stock");
             stock.setTextColor(Color.parseColor("#095C15"));
+            storeLocation.setText("at " + storeLocationStr);
         }
         price.setText("$" + priceStr);
         prodName.setText(prodNameStr);
