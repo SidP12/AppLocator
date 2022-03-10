@@ -11,6 +11,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -37,12 +39,22 @@ public class Navigator extends AppCompatActivity {
         d.setBounds(0,0,1080,1920);
         d.draw(canvas);
 
+
+
         // Line
         Paint paint = new Paint();
         paint.setColor(Color.rgb(255, 153, 51));
         int strokeWidth = 16;
         paint.setStrokeWidth(strokeWidth);
         paint.setAntiAlias(true);
+        Bundle extras = getIntent().getExtras();
+
+        String prodLocationStr = "";
+        if (extras != null) {
+            prodLocationStr = extras.getString("prodLocation");
+            Toast.makeText(getApplicationContext(), prodLocationStr, Toast.LENGTH_SHORT).show();
+        }
+
         Stack<int[]> pathStack = generatePathStack(7);
         while(!pathStack.isEmpty()) {
             int[] c = pathStack.pop();

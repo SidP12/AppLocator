@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso;
 
 public class ProductDetailsPage extends AppCompatActivity {
 
+    String prodLocationStr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +25,7 @@ public class ProductDetailsPage extends AppCompatActivity {
         String prodNameStr = "";
         String storeLocationStr = "";
         String availabilityStoreStr = "";
-        String prodLocationStr = "";
+        prodLocationStr = "";
         if (extras != null) {
              imageStr = extras.getString("image");
              priceStr = extras.getString("price");
@@ -57,6 +58,7 @@ public class ProductDetailsPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ProductDetailsPage.this, Navigator.class);
+                intent.putExtra("prodLocation", prodLocationStr);
                 startActivity(intent);
             }
         });
