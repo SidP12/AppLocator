@@ -81,10 +81,12 @@ public class ProductPage extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     numItems.setText(inStockList.size() + " ITEMS");
+                    setOnClickListener(inStockList);
                     AdapterClass adapterClass = new AdapterClass(inStockList, listener);
                     recyclerView.setAdapter(adapterClass);
                 } else {
                     numItems.setText(allList.size() + " ITEMS");
+                    setOnClickListener(allList);
                     AdapterClass adapterClass = new AdapterClass(allList, listener);
                     recyclerView.setAdapter(adapterClass);
                 }
@@ -103,6 +105,7 @@ public class ProductPage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         if (ref != null) {
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -152,6 +155,13 @@ public class ProductPage extends AppCompatActivity {
             setOnClickListener(searchedList);
             AdapterClass adapterClass = new AdapterClass(searchedList, listener);
             recyclerView.setAdapter(adapterClass);
+            Switch sw = (Switch) findViewById(R.id.hideStock);
+            if (sw.isChecked()) {
+                numItems.setText(inStockList.size() + " ITEMS");
+                setOnClickListener(inStockList);
+                AdapterClass adapterClass2 = new AdapterClass(inStockList, listener);
+                recyclerView.setAdapter(adapterClass);
+            }
         }
     }
 
