@@ -6,15 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".StoreLocator">
 
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="227dp"
+        android:backgroundTint="#3781F1"
+        android:text="Confirm" />
+
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="338dp"
-        android:layout_height="296dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="436dp"
+        android:checkedButton="@+id/Kennesaw"
         android:layout_marginBottom="0dp">
 
         <RadioButton
@@ -61,8 +73,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="413dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="406dp"
         android:text="Nearby Stores"
         android:textColor="#2C44CF" />
 
@@ -72,8 +84,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="226dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="146dp"
+        android:text="Details"
+        android:textColor="#027180" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="98dp"
         android:text="Details"
         android:textColor="#027180" />
 
@@ -83,8 +106,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="49dp"
+        android:text="Details"
+        android:textColor="#027180" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="6dp"
         android:text="Details"
         android:textColor="#027180" />
 
@@ -92,10 +126,6 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="83dp"
         android:text="Details"
         android:textColor="#027180" />
 
@@ -103,10 +133,6 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="134dp"
         android:text="Details"
         android:textColor="#027180" />
 
@@ -116,36 +142,38 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="179dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="189dp"
         android:text="Details"
         android:textColor="#027180" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="415dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="391dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="-2dp"
         android:layout_marginEnd="0dp"
         android:adjustViewBounds="true"
         app:srcCompat="@drawable/storemap"
         tools:srcCompat="@drawable/storemap" />
 
     <Button
-        android:id="@+id/confirm"
+        android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="278dp"
-        android:backgroundTint="#3781F1"
-        android:text="Confirm" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="34dp"
+        android:background="@android:color/transparent"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:textColor="#0040FF" />
 
     <!--        android:adjustViewBounds="true"-->
 <!--        app:srcCompat="@drawable/storemap" />-->

@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="match_parent"
-        android:layout_height="576dp"
+        android:layout_width="412dp"
+        android:layout_height="573dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -18,7 +18,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="157dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="-2dp"
+        android:layout_marginBottom="1dp"
         app:srcCompat="@drawable/img" />
 
     <!--    <EditText-->

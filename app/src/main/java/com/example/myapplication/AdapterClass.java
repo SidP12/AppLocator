@@ -37,9 +37,11 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
         if (availability.equals("0")) {
             holder.stock.setText("Out of stock");
             holder.stock.setTextColor(Color.RED);
+            Picasso.get().load("https://hdclipartall.com/images/red-cross-mark-clipart-red-x-mark-icon-256.png").into(holder.check);
         } else {
             holder.stock.setText(availability + " in stock");
             holder.stock.setTextColor(Color.parseColor("#095C15"));
+            Picasso.get().load("https://icones.pro/wp-content/uploads/2021/02/icone-de-coche-verte.png").into(holder.check);
         }
         holder.rating.setText(list.get(position).getReview());
         Picasso.get().load(list.get(position).getPictureOfProduct()).into(holder.prodPic);
@@ -56,7 +58,7 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView prodName, prodPrice, stock, rating;
-        ImageView prodPic;
+        ImageView prodPic, check;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             prodName = itemView.findViewById(R.id.prodName);
@@ -64,6 +66,7 @@ public class AdapterClass extends RecyclerView.Adapter<AdapterClass.MyViewHolder
             stock = itemView.findViewById(R.id.stock);
             rating = itemView.findViewById(R.id.rating);
             prodPic = itemView.findViewById(R.id.prodPic);
+            check = itemView.findViewById(R.id.check);
             itemView.setOnClickListener(this);
         }
 
