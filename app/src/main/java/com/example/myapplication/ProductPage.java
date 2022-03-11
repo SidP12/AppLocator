@@ -3,15 +3,14 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class ProductPage extends AppCompatActivity {
 
@@ -35,6 +33,8 @@ public class ProductPage extends AppCompatActivity {
     DatabaseReference ref;
     String locationStr;
     String value;
+    ArrayList<Product> inStockList;
+    ArrayList<Product> allList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +75,21 @@ public class ProductPage extends AppCompatActivity {
                 openLocationsPage();
             }
         });
+        Switch sw = (Switch) findViewById(R.id.hideStock);
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            TextView numItems = findViewById(R.id.numItems);
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    numItems.setText(inStockList.size() + " ITEMS");
+                    AdapterClass adapterClass = new AdapterClass(inStockList, listener);
+                    recyclerView.setAdapter(adapterClass);
+                } else {
+                    numItems.setText(allList.size() + " ITEMS");
+                    AdapterClass adapterClass = new AdapterClass(allList, listener);
+                    recyclerView.setAdapter(adapterClass);
+                }
+            }
+        });
     }
 
     public void openLocationsPage() {
@@ -95,7 +110,7 @@ public class ProductPage extends AppCompatActivity {
                     ArrayList<Product> list = new ArrayList<>();
                     if (snapshot.exists()) {
                         for (DataSnapshot ds : snapshot.getChildren()) {
-                                list.add(ds.getValue(Product.class));
+                            list.add(ds.getValue(Product.class));
                         }
                     }
                     search(value, list);
@@ -111,18 +126,27 @@ public class ProductPage extends AppCompatActivity {
 
     private void search(String value, ArrayList<Product> list) {
         ArrayList<Product> searchedList = new ArrayList<>();
+        inStockList = new ArrayList<>();
+
         for (Product prod : list) {
             if (!value.isEmpty() && (prod.getProductName().toLowerCase().contains(value.toLowerCase()) || prod.getTags().toLowerCase().contains(value.toLowerCase()) || value.toLowerCase().contains(prod.getTags().toLowerCase()))) {
                 searchedList.add(prod);
+                if (!prod.getAvailability().equals("0")) {
+                    inStockList.add(prod);
+                }
             }
         }
         TextView textView = findViewById(R.id.noItems);
         TextView numItems = findViewById(R.id.numItems);
+        View b = findViewById(R.id.hideStock);
         if (searchedList.isEmpty()) {
+            b.setVisibility(View.GONE);
             numItems.setText("");
             textView.setPaintFlags(textView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
             textView.setText("No products found for the search!");
         } else {
+            b.setVisibility(View.VISIBLE);
+            allList = searchedList;
             numItems.setText(searchedList.size() + " ITEMS");
             textView.setText("");
             setOnClickListener(searchedList);

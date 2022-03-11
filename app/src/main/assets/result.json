@@ -7,7 +7,7 @@
 		"price": "15.95",
 		"tags": "soccer, field",
 		"productName": "Perfect Soccer Ball",
-		"review": "4.7"
+		"review": "4.9"
 	}, "basketball": {
 	"SKU": "1349192",
 	"availability": "5",
@@ -73,5 +73,14 @@
 	"tags": "sports, court",
 	"productName": "Ryval Regulation Hoop",
 	"review": "4.0"
+}, "tennis_ball": {
+	"SKU": "1349199",
+	"availability": "0",
+	"location": "A10",
+	"pictureOfProduct": "https://m.media-amazon.com/images/I/81hrU0AXqyL._AC_SL1500_.jpg",
+	"price": "15.99",
+	"tags": "sports, court",
+	"productName": "Wilson Ultra Club Tennis Balls",
+	"review": "4.4"
 }
 }

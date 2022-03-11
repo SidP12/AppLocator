@@ -74,12 +74,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="552dp"
+        android:layout_height="535dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="179dp"
+        android:layout_marginTop="196dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <TextView
@@ -101,9 +101,22 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="161dp"
+        android:layout_marginTop="180dp"
         android:text="NumberItems"
         android:textSize="10sp" />
+
+    <Switch
+        android:id="@+id/hideStock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="153dp"
+        android:layout_marginEnd="250dp"
+        android:text="Hide Out of Stock" />
 
 
 </RelativeLayout>
