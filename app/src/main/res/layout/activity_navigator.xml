@@ -86,4 +86,14 @@
         android:layout_marginBottom="80dp"
         app:srcCompat="@drawable/divider" />
 
+    <ImageView
+        android:id="@+id/destinationSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="113dp"
+        android:layout_marginBottom="156dp"
+        app:srcCompat="@drawable/destination" />
+
 </RelativeLayout>
