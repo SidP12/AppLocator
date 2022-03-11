@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -109,9 +110,8 @@ public class Navigator extends AppCompatActivity {
                 break;
         }
 
-        Stack<int[]> pathStack = generatePathStack(aisleCode);
-        while(!pathStack.isEmpty()) {
-            int[] c = pathStack.pop();
+        ArrayList<int[]> pathList = generatePathList(aisleCode);
+        for(int[] c : pathList) {
             //yes, I had to switch the x and the y
             int leftOffset = 12;
             int topOffset = 35;
@@ -124,8 +124,8 @@ public class Navigator extends AppCompatActivity {
             canvas.drawLine(startX, startY, endX, endY, paint);
         }
     }
-    private Stack<int[]> generatePathStack(int aisle) {
-        Stack<int[]> res = new Stack<>();
+    private ArrayList<int[]> generatePathList(int aisle) {
+        ArrayList<int[]> res = new ArrayList<>();
 
         //grid: 0 invalid path (obstructions), 1 valid path, 2 starting point (entrance), 3-9 destinations
         int[][] grid = {
@@ -264,28 +264,28 @@ public class Navigator extends AppCompatActivity {
             //check up
             if (isValid(row - 1, col, grid, visited)) {
                 if(distance[row - 1][col] == distFromStart) {
-                    res.push(new int[]{--row, col});
+                    res.add(new int[]{--row, col});
                     continue;
                 }
             }
             //check left
             if (isValid(row, col - 1, grid, visited)) {
                 if(distance[row][col - 1] == distFromStart) {
-                    res.push(new int[]{row, --col});
+                    res.add(new int[]{row, --col});
                     continue;
                 }
             }
             //check down
             if (isValid(row + 1, col, grid, visited)) {
                 if(distance[row + 1][col] == distFromStart) {
-                    res.push(new int[]{++row, col});
+                    res.add(new int[]{++row, col});
                     continue;
                 }
             }
             //check right
             if (isValid(row, col + 1, grid, visited)) {
                 if(distance[row][col + 1] == distFromStart) {
-                    res.push(new int[]{row, ++col});
+                    res.add(new int[]{row, ++col});
                     //continue;
                 }
             }
