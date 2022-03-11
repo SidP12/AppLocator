@@ -9,23 +9,25 @@
 
     <ImageView
         android:id="@+id/storeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="575dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="3dp"
+        android:layout_width="261dp"
+        android:layout_height="464dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="50dp"
         app:srcCompat="@drawable/layout" />
 
     <TextView
         android:id="@+id/branchName"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="3dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="13dp"
         android:fontFamily="sans-serif-medium"
         android:text="BranchName"
-        android:textColor="#000000"
-        android:textSize="16sp" />
+        android:textColor="#2C468C"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/backButton3"
@@ -73,5 +75,15 @@
         android:text="ProductName"
         android:textColor="#000000"
         android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/horizontalBar"
+        android:layout_width="1080dp"
+        android:layout_height="78dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="80dp"
+        app:srcCompat="@drawable/divider" />
 
 </RelativeLayout>

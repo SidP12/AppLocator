@@ -96,7 +96,7 @@ public class Navigator extends AppCompatActivity {
         if (extras != null) {
             prodLocationStr = extras.getString("prodLocation");
         }
-        //switch statement
+        //aisle code to matrix code conversion
         int aisleCode = 3;
         switch(prodLocationStr) {
             case "A10" :
